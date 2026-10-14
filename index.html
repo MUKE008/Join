@@ -359,68 +359,76 @@
         </div>
     </div>
 
-    <!-- 7. Videografer & Editor -->
-<div class="job-card" id="job-7">
-    <div class="job-header-row" onclick="toggleJob('job-7')">
-        <div class="job-title-area">
-            <div class="job-title">Videografer & Editor <span class="job-title-sub" data-i18n="job7_title">摄影剪辑</span></div>
-            <div class="job-desc" data-i18n="job7_desc" style="margin-top: 6px; margin-bottom: 8px;">Bertanggung jawab atas pengambilan video, editing materi promosi, serta produksi konten video pendek.</div>
-            <div class="tags">
-                <span class="tag" data-i18n="tag_cam_count">butuh 2 orang</span>
-                <span class="tag" data-i18n="tag_cam_level">Asisten → Pakar · 4 tingkat</span>
+    <!-- 6. Videografer & Editor (摄影剪辑) -->
+            <div class="job-card rounded-2xl overflow-hidden" id="job-7">
+                <div onclick="toggleJob('job-7')" class="p-5 sm:p-6 flex items-center justify-between cursor-pointer select-none">
+                    <div class="pr-4">
+                        <div class="flex items-center gap-2.5 flex-wrap">
+                            <h3 class="text-lg font-bold text-white">Videografer & Editor</h3>
+                            <span class="text-xs text-slate-400 font-medium">摄影剪辑</span>
+                        </div>
+                        <p class="text-sm text-slate-400 mt-1.5">Bertanggung jawab atas pengambilan video, editing materi promosi, serta produksi konten video pendek.</p>
+                        <div class="flex items-center gap-2 mt-3">
+                            <span class="px-2.5 py-0.5 rounded-md bg-slate-800/80 text-slate-300 text-xs">butuh 2 orang</span>
+                        </div>
+                    </div>
+                    <div class="shrink-0 flex items-center gap-1 text-pink-400 font-semibold text-sm">
+                        <span class="btn-text">Lamar</span>
+                        <svg class="w-4 h-4 transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <div class="collapse-content px-5 sm:px-6 bg-slate-900/50">
+                    <form onsubmit="handleSubmit(event, 'Videografer & Editor')" class="pb-6 pt-2 space-y-4 border-t border-slate-800/80">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nama lengkap</label>
+                            <input type="text" class="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-pink-500 name-input" placeholder="contoh: Siti Rahayu" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nomor WhatsApp</label>
+                            <input type="tel" class="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-pink-500 wa-input" placeholder="contoh: 08123456789" required>
+                        </div>
+                        <button type="submit" class="w-full py-3 px-4 rounded-xl font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition-opacity submit-btn">
+                            Kirim Lamaran 提交申请
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="job-card-right">
-            <div class="next-btn-badge" id="btn-text-job-7" data-i18n="btn_lamar">Lamar ▼</div>
-        </div>
-    </div>
-    <div class="job-form-collapse">
-        <form onsubmit="handleSubmit(event, 'Videografer & Editor')">
-            <div class="form-group">
-                <label data-i18n="form_name">Nama lengkap</label>
-                <input type="text" class="input-box name-input" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu" required>
-                <div class="input-hint" data-i18n="form_name_hint">Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.</div>
+
+            <!-- 7. Keuangan & Akuntansi (财务) -->
+            <div class="job-card rounded-2xl overflow-hidden" id="job-finance">
+                <div onclick="toggleJob('job-finance')" class="p-5 sm:p-6 flex items-center justify-between cursor-pointer select-none">
+                    <div class="pr-4">
+                        <div class="flex items-center gap-2.5 flex-wrap">
+                            <h3 class="text-lg font-bold text-white">Keuangan & Akuntansi</h3>
+                            <span class="text-xs text-slate-400 font-medium">财务</span>
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-red-500/20 text-red-400 border border-red-500/30 rounded-full">URGENT</span>
+                        </div>
+                        <p class="text-sm text-slate-400 mt-1.5">Mengelola pembukuan harian, pelaporan keuangan, rekonsiliasi transaksi, dan administrasi keuangan operasional agensi.</p>
+                        <div class="flex items-center gap-2 mt-3">
+                            <span class="px-2.5 py-0.5 rounded-md bg-slate-800/80 text-slate-300 text-xs">butuh 1 orang</span>
+                        </div>
+                    </div>
+                    <div class="shrink-0 flex items-center gap-1 text-pink-400 font-semibold text-sm">
+                        <span class="btn-text">Lamar</span>
+                        <svg class="w-4 h-4 transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <div class="collapse-content px-5 sm:px-6 bg-slate-900/50">
+                    <form onsubmit="handleSubmit(event, 'Keuangan')" class="pb-6 pt-2 space-y-4 border-t border-slate-800/80">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nama lengkap</label>
+                            <input type="text" class="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-pink-500 name-input" placeholder="contoh: Siti Rahayu" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nomor WhatsApp</label>
+                            <input type="tel" class="w-full bg-slate-950/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-pink-500 wa-input" placeholder="contoh: 08123456789" required>
+                        </div>
+                        <button type="submit" class="w-full py-3 px-4 rounded-xl font-semibold text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 transition-opacity submit-btn">
+                            Kirim Lamaran 提交申请
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label data-i18n="form_wa">Nomor WhatsApp</label>
-                <input type="tel" class="input-box wa-input" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789" required>
-                <div class="input-hint" data-i18n="form_wa_hint">Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.</div>
-            </div>
-            <button type="submit" class="submit-btn" data-i18n="form_submit">Kirim Lamaran</button>
-        </form>
-    </div>
-    <!--  7. 新增：财务岗位 (Keuangan) -->
-<div class="job-card" id="job-finance">
-    <div class="job-header-row" onclick="toggleJob('job-finance')">
-        <div class="job-title-area">
-            <div class="job-title">Keuangan & Akuntansi <span class="job-title-sub">财务</span> <span class="badge-urgent">URGENT</span></div>
-            <div class="job-desc" style="margin-top: 6px; margin-bottom: 8px;">Mengelola pembukuan harian, pelaporan keuangan, rekonsiliasi transaksi, dan administrasi keuangan operasional agensi.</div>
-            <div class="tags">
-                <span class="tag">butuh 1 orang</span>
-                <span class="tag">P 专业财务轨</span>
-            </div>
-        </div>
-        <div class="job-card-right">
-            <div class="next-btn-badge" id="btn-text-job-finance">Lamar ▼</div>
-        </div>
-    </div>
-    <div class="job-form-collapse">
-        <form onsubmit="handleSubmit(event, 'Keuangan')">
-            <div class="form-group">
-                <label data-i18n="form_name">Nama lengkap</label>
-                <input type="text" class="input-box name-input" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu" required>
-                <div class="input-hint" data-i18n="form_name_hint">Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.</div>
-            </div>
-            <div class="form-group">
-                <label data-i18n="form_wa">Nomor WhatsApp</label>
-                <input type="tel" class="input-box wa-input" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789" required>
-                <div class="input-hint" data-i18n="form_wa_hint">Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.</div>
-            </div>
-            <button type="submit" class="submit-btn" data-i18n="form_submit">Kirim Lamaran</button>
-        </form>
-    </div>
-</div>
-</div>
 
     <!-- 流程区块 -->
     <div class="process-section">
