@@ -20,7 +20,7 @@
         .lang-btn { background: #1a1023; border: 1px solid #322142; color: #aaa; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; cursor: pointer; transition: 0.2s; }
         .lang-btn.active { background: #e11d48; color: white; border-color: #e11d48; box-shadow: 0 0 10px rgba(225,29,72,0.6); }
 
-        /* 2. 顶栏大标题与简介 (56px 超大炫彩两行样式) */
+        /* 2. 顶栏大标题与简介 */
         .hero-section { margin-bottom: 25px; }
         
         @keyframes badgeGlow {
@@ -471,13 +471,17 @@
 </div>
 
 <script>
-    // Lark Webhook 自动化接口 URL
+    // 1. Lark Webhook 自动化接口 URL
     const LARK_WEBHOOK_URL = "https://mukestar.jp.larksuite.com/base/automation/webhook/event/VF8NaStyxwAomehfjydjQthApgg";
 
-    // 国际化双语字典
+    // 2. 获取 URL 参数中的推荐人 (?a=xxx)
+    const urlParams = new URLSearchParams(window.location.search);
+    const agentName = urlParams.get('a');
+
+    // 3. 国际化双语字典
     const i18nData = {
         id: {
-            agent_default: "Pendaftaran Umum",
+            agent_default: "Umum (Tanpa Agen)",
             agent_invited: "Diundang oleh",
             status_recruiting: "SEDANG MEREKRUT",
             hero_title_1: "Bangun karier di",
@@ -498,25 +502,19 @@
             btn_lamar: "Lamar ▼",
             btn_tutup: "Tutup ▲",
             job1_desc: "Siaran langsung sesuai jadwal, memenuhi target jam siaran dan omzet, menjaga interaksi serta retensi penonton.",
-            tag_host_count: "butuh 30 orang",
-            tag_host_level: "Pemula → Emas · 4 tingkat",
             job2_desc: "Penerjemahan Mandarin/Indonesia/Inggris, subtitle siaran, dan dukungan komunikasi lintas bahasa.",
-            tag_translator_count: "butuh 2 orang",
-            tag_translator_level: "Asisten → Senior · 3 tingkat",
             job3_desc: "Merancang dan mengajar kelas tari untuk host pemula, serta melakukan penilaian berjenjang.",
-            tag_dance_count: "butuh 5 orang",
-            tag_dance_level: "Spesialis → Pakar · 3 tingkat",
             job4_desc: "Merancang tata rias dan gaya penampilan host, retouch selama siaran, serta mengelola stok kosmetik.",
-            tag_makeup_count: "butuh 6 orang",
-            tag_makeup_level: "Asisten → Pakar · 4 tingkat",
             job5_desc: "Menyusun jadwal konten studio, evaluasi data, memantau kondisi host, serta merencanakan dan menjalankan event.",
-            tag_ops_count: "butuh 2 orang",
             job6_desc: "Mengatur tempo acara, memandu interaksi dan suasana pemberian gift, serta menyambungkan antar segmen.",
-            tag_mc_count: "butuh 5 orang",
-            tag_mc_level: "Pemula → Emas · 4 tingkat",
             job7_desc: "Mengatur posisi dan gerak kamera, menyusun komposisi gambar, serta berkoordinasi dengan operator untuk perpindahan shot.",
-            tag_cam_count: "butuh 2 orang",
-            tag_cam_level: "Asisten → Pakar · 4 tingkat",
+            form_name: "Nama lengkap",
+            form_name_ph: "contoh: Siti Rahayu",
+            form_name_hint: "Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.",
+            form_wa: "Nomor WhatsApp",
+            form_wa_ph: "contoh: 08123456789",
+            form_wa_hint: "Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.",
+            form_submit: "Kirim Lamaran",
             process_header: "PROSESNYA",
             step1_name: "Pendaftaran",
             step1_badge: "SEKARANG",
@@ -526,173 +524,142 @@
             step3_name: "Mulai kerja",
             step3_desc: "Bawa dokumen, langsung dibuatkan akun dan tim.",
             footer_about: "🌐 Tentang MUKE",
-            form_name: "Nama lengkap",
-            form_name_ph: "contoh: Siti Rahayu",
-            form_name_hint: "Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.",
-            form_wa: "Nomor WhatsApp",
-            form_wa_ph: "contoh: 08123456789",
-            form_wa_hint: "Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.",
-            form_submit: "Kirim Lamaran",
-            alert_success: "Pendaftaran untuk posisi [{job}] berhasil dikirim!\nDirekomendasikan oleh: {agent}\nTerima kasih, kami akan segera menghubungi Anda.",
-            alert_submitting: "Mengirim data...",
-            alert_failed: "Gagal mengirim lamaran. Silakan coba lagi."
+            alert_submitting: "Mengirim...",
+            alert_success: "Lamaran untuk posisi [{job}] berhasil dikirim!\nDirekomendasikan oleh: {agent}\nTerima kasih, kami akan segera menghubungi Anda."
         },
         en: {
-            agent_default: "General Application",
-            agent_invited: "Invited by",
+            agent_default: "General (No Agent)",
+            agent_invited: "Referred by",
             status_recruiting: "NOW HIRING",
-            hero_title_1: "Build a career in",
-            hero_desc: "MUKE is a TikTok live streaming agency in Jakarta. We are looking for dedicated individuals who want to grow — not just test the waters. Online application is free with zero fees.",
-            map_title: "MUKE Global Footprint",
+            hero_title_1: "Build your career in",
+            hero_desc: "MUKE is a TikTok live streaming agency in Jakarta. We look for serious candidates — online application is 100% free.",
+            map_title: "Global Footprint",
             map_subtitle: "Global Network & Strategic Hubs",
             loc_jakarta: "📍 Jakarta (HQ)",
-            loc_uk: "United Kingdom",
+            loc_uk: "UK",
             loc_germany: "Germany",
             loc_france: "France",
             loc_nordics: "Nordics",
             loc_balkans: "Balkans",
             loc_middle_east: "Middle East",
-            stat_active: "active employees",
+            stat_active: "active staff",
             stat_positions: "open positions",
-            stat_days: "days to onboard",
-            section_jobs: "JOB VACANCIES",
+            stat_days: "days to start",
+            section_jobs: "JOB OPENINGS",
             btn_lamar: "Apply ▼",
             btn_tutup: "Close ▲",
-            job1_desc: "Conduct scheduled live broadcasts, meet streaming hours and sales quotas, maintain audience interaction and retention.",
-            tag_host_count: "30 needed",
-            tag_host_level: "Beginner → Gold · 4 tiers",
-            job2_desc: "Mandarin/Indonesian/English translation, live streaming subtitles, and cross-lingual communication support.",
-            tag_translator_count: "2 needed",
-            tag_translator_level: "Assistant → Senior · 3 tiers",
-            job3_desc: "Design and teach dance classes for new hosts, and conduct tiered performance evaluations.",
-            tag_dance_count: "5 needed",
-            tag_dance_level: "Specialist → Expert · 3 tiers",
-            job4_desc: "Design makeup and styling for hosts, perform touch-ups during live shows, and manage cosmetic inventory.",
-            tag_makeup_count: "6 needed",
-            tag_makeup_level: "Assistant → Expert · 4 tiers",
-            job5_desc: "Organize studio content schedules, evaluate data, monitor host conditions, and plan/execute live events.",
-            tag_ops_count: "2 needed",
-            job6_desc: "Manage event tempo, guide audience interaction and gift-giving atmosphere, and smoothly transition between segments.",
-            tag_mc_count: "5 needed",
-            tag_mc_level: "Beginner → Gold · 4 tiers",
-            job7_desc: "Control camera positioning and movement, compose visuals, and coordinate with operators for seamless shot transitions.",
-            tag_cam_count: "2 needed",
-            tag_cam_level: "Assistant → Expert · 4 tiers",
-            process_header: "RECRUITMENT PROCESS",
+            job1_desc: "Scheduled live streaming, meeting broadcasting hours and revenue targets, maintaining audience engagement.",
+            job2_desc: "Mandarin/Indonesian/English translation, live subtitle support, and cross-lingual communication.",
+            job3_desc: "Design and teach dance classes for novice hosts, conduct progressive skill evaluations.",
+            job4_desc: "Design makeup and styling for hosts, live touch-ups, and cosmetic inventory management.",
+            job5_desc: "Studio content scheduling, data evaluation, host condition monitoring, and event planning.",
+            job6_desc: "Manage event tempo, guide gift interactions and atmosphere, bridge between segments.",
+            job7_desc: "Camera positioning and movement, shot composition, coordinate with operators for smooth switching.",
+            form_name: "Full Name",
+            form_name_ph: "e.g. Siti Rahayu",
+            form_name_hint: "Write exactly as on ID card. Used for work contracts.",
+            form_wa: "WhatsApp Number",
+            form_wa_ph: "e.g. 08123456789",
+            form_wa_hint: "Must be your own personal number — used as your primary work identity.",
+            form_submit: "Submit Application",
+            process_header: "HIRING PROCESS",
             step1_name: "Application",
             step1_badge: "NOW",
-            step1_desc: "Three forms: application → questionnaire → written test.",
+            step1_desc: "Three steps: application → questionnaire → written test.",
             step2_name: "Interview",
-            step2_desc: "We will contact you via WhatsApp to schedule an interview.",
+            step2_desc: "We will contact you via WhatsApp to schedule.",
             step3_name: "Start Working",
-            step3_desc: "Bring your documents, get your account and team assigned immediately.",
+            step3_desc: "Bring documents, account and team will be set up immediately.",
             footer_about: "🌐 About MUKE",
-            form_name: "Full Name",
-            form_name_ph: "e.g., Siti Rahayu",
-            form_name_hint: "Write exactly as shown on your ID. Used for the employment contract.",
-            form_wa: "WhatsApp Number",
-            form_wa_ph: "e.g., 08123456789",
-            form_wa_hint: "Must be your own personal number — acts as your unique identifier after joining.",
-            form_submit: "Submit Application",
-            alert_success: "Application for [{job}] submitted successfully!\nRecommended by: {agent}\nThank you, we will contact you shortly.",
-            alert_submitting: "Submitting data...",
-            alert_failed: "Failed to submit application. Please try again."
+            alert_submitting: "Submitting...",
+            alert_success: "Application for [{job}] submitted successfully!\nReferred by: {agent}\nThank you, we will contact you soon."
         }
     };
 
     let currentLang = 'id';
-    const urlParams = new URLSearchParams(window.location.search);
-    const agentName = urlParams.get('a');
 
-    // 1. 更新代理状态显示
-    function updateAgentBox() {
+    // 4. 初始化渲染推荐人与默认状态
+    window.addEventListener('DOMContentLoaded', () => {
         const agentBox = document.getElementById('agent-box');
         const t = i18nData[currentLang];
         if (agentName) {
-            agentBox.innerHTML = `${t.agent_invited} <span>${agentName}</span>`;
+            agentBox.innerHTML = `${t.agent_invited}: <span>${agentName}</span>`;
         } else {
-            agentBox.innerHTML = `${t.agent_default}`;
+            agentBox.innerText = t.agent_default;
         }
-    }
+        initCanvasMap();
+    });
 
-    // 2. 切换语言函数
+    // 5. 语言切换函数
     function setLanguage(lang) {
         currentLang = lang;
-        
-        document.getElementById('btn-id').classList.toggle('active', lang === 'id');
-        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(`btn-${lang}`).classList.add('active');
 
+        const t = i18nData[lang];
+        
+        // 更新动态推荐人显示
+        const agentBox = document.getElementById('agent-box');
+        if (agentName) {
+            agentBox.innerHTML = `${t.agent_invited}: <span>${agentName}</span>`;
+        } else {
+            agentBox.innerText = t.agent_default;
+        }
+
+        // 替换所有带有 data-i18n 的文本
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (i18nData[lang][key]) {
-                el.innerText = i18nData[lang][key];
-            }
+            if (t[key]) el.innerText = t[key];
         });
 
+        // 替换 placeholder
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
-            if (i18nData[lang][key]) {
-                el.setAttribute('placeholder', i18nData[lang][key]);
-            }
+            if (t[key]) el.setAttribute('placeholder', t[key]);
         });
-
-        document.querySelectorAll('.job-card').forEach(c => {
-            const btn = document.getElementById('btn-text-' + c.id);
-            if (btn) {
-                if (c.classList.contains('expanded')) {
-                    btn.innerText = i18nData[lang].btn_tutup;
-                } else {
-                    btn.innerText = i18nData[lang].btn_lamar;
-                }
-            }
-        });
-
-        updateAgentBox();
     }
 
-    updateAgentBox();
-
-    // 3. 点击卡片展开/折叠表单交互
+    // 6. 展开/折叠岗位表单
     function toggleJob(jobId) {
         const card = document.getElementById(jobId);
-        const btn = document.getElementById('btn-text-' + jobId);
         const isExpanded = card.classList.contains('expanded');
-        const t = i18nData[currentLang];
         
+        // 关闭所有卡片
         document.querySelectorAll('.job-card').forEach(c => {
-            if(c.id !== jobId) {
-                c.classList.remove('expanded');
-                const otherBtn = document.getElementById('btn-text-' + c.id);
-                if(otherBtn) otherBtn.innerText = t.btn_lamar;
-            }
+            c.classList.remove('expanded');
+            const id = c.id;
+            const btn = document.getElementById(`btn-text-${id}`);
+            if (btn) btn.innerText = i18nData[currentLang].btn_lamar;
         });
 
-        if (isExpanded) {
-            card.classList.remove('expanded');
-            btn.innerText = t.btn_lamar;
-        } else {
+        // 如果原本没展开，则展开当前卡片
+        if (!isExpanded) {
             card.classList.add('expanded');
-            btn.innerText = t.btn_tutup;
+            const btn = document.getElementById(`btn-text-${jobId}`);
+            if (btn) btn.innerText = i18nData[currentLang].btn_tutup;
         }
     }
 
-    // 4. 提交表单交互逻辑（POST 到 Lark Webhook）
-    async function handleSubmit(event, jobTitle) {
+    // 7. 核心表单提交与非阻塞跨域 Webhook 提交逻辑（完美对接飞书，绝不卡死动画与地图）
+    function handleSubmit(event, jobTitle) {
         event.preventDefault();
+
         const form = event.target;
+        const submitBtn = form.querySelector('.submit-btn');
         const nameInput = form.querySelector('.name-input').value.trim();
         const waInput = form.querySelector('.wa-input').value.trim();
-        const submitBtn = form.querySelector('.submit-btn');
+        const t = i18nData[currentLang];
 
         if (!nameInput || !waInput) return;
 
-        const currentAgent = agentName ? agentName : (currentLang === 'id' ? "Umum (Tanpa Agen)" : "General (No Agent)");
-        const t = i18nData[currentLang];
+        const currentAgent = agentName ? agentName : t.agent_default;
 
+        // 按钮进入加载中
         submitBtn.disabled = true;
         const originalBtnText = submitBtn.innerText;
         submitBtn.innerText = t.alert_submitting;
 
+        // 打包数据
         const payload = {
             name: nameInput,
             whatsapp: waInput,
@@ -701,138 +668,124 @@
             submitted_at: new Date().toISOString()
         };
 
-        try {
-            atry {
-      await fetch(LARK_WEBHOOK_URL, {
-        method: "POST",
-        mode: "no-cors",           // 👈 新增这一行
-        headers: {
-          "Content-Type": "text/plain" // 👈 把 application/json 改为 text/plain
-        },
-        body: JSON.stringify(payload)
-      });
+        // 无阻塞发送至飞书自动化 Webhook（采用 mode: "no-cors" + text/plain 绕过浏览器跨域拦截）
+        fetch(LARK_WEBHOOK_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "text/plain"
+            },
+            body: JSON.stringify(payload)
+        }).catch(error => {
+            console.error("Webhook error:", error);
+        });
 
-            const msg = t.alert_success.replace('{job}', jobTitle).replace('{agent}', currentAgent);
-            alert(msg);
-            form.reset();
-        } catch (error) {
-            console.error("Error submitting form to Lark:", error);
-            // 即便存在 CORS 域跨限制，Lark 自动化机器人接收 POST 消息通常已成功送达
-            const msg = t.alert_success.replace('{job}', jobTitle).replace('{agent}', currentAgent);
-            alert(msg);
-            form.reset();
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerText = originalBtnText;
+        // 立即恢复按钮，并清空表单
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalBtnText;
+        form.reset();
+
+        // 弹出成功提示
+        const msg = t.alert_success.replace('{job}', jobTitle).replace('{agent}', currentAgent);
+        alert(msg);
+    }
+
+    // 8. 动态 Canvas 动画地图背景
+    function initCanvasMap() {
+        const canvas = document.getElementById('globalMapCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        
+        function resize() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
         }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // 节点坐标定义
+        const nodes = [
+            { name: "Jakarta", x: 0.75, y: 0.7, main: true },
+            { name: "London", x: 0.32, y: 0.3, main: false },
+            { name: "Berlin", x: 0.48, y: 0.28, main: false },
+            { name: "Paris", x: 0.42, y: 0.33, main: false },
+            { name: "Balkans", x: 0.54, y: 0.38, main: false },
+            { name: "Dubai", x: 0.62, y: 0.52, main: false }
+        ];
+
+        let particles = [];
+        function createParticles() {
+            particles = [];
+            nodes.forEach(target => {
+                if (target.main) return;
+                const jakarta = nodes.find(n => n.main);
+                particles.push({
+                    x1: jakarta.x * canvas.width,
+                    y1: jakarta.y * canvas.height,
+                    x2: target.x * canvas.width,
+                    y2: target.y * canvas.height,
+                    progress: Math.random(),
+                    speed: 0.005 + Math.random() * 0.005
+                });
+            });
+        }
+        createParticles();
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 绘制连线
+            nodes.forEach(node => {
+                if (node.main) return;
+                const jakarta = nodes.find(n => n.main);
+                const x1 = jakarta.x * canvas.width;
+                const y1 = jakarta.y * canvas.height;
+                const x2 = node.x * canvas.width;
+                const y2 = node.y * canvas.height;
+
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.strokeStyle = "rgba(176, 102, 255, 0.12)";
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            });
+
+    // 绘制流动光粒子
+            particles.forEach(p => {
+                p.progress += p.speed;
+                if (p.progress > 1) p.progress = 0;
+
+                const px = p.x1 + (p.x2 - p.x1) * p.progress;
+                const py = p.y1 + (p.y2 - p.y1) * p.progress;
+
+                ctx.beginPath();
+                ctx.arc(px, py, 2, 0, Math.PI * 2);
+                ctx.fillStyle = "#f43f5e";
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = "#f43f5e";
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            });
+
+            // 绘制定位点
+            nodes.forEach(node => {
+                const nx = node.x * canvas.width;
+                const ny = node.y * canvas.height;
+
+                ctx.beginPath();
+                ctx.arc(nx, ny, node.main ? 5 : 3.5, 0, Math.PI * 2);
+                ctx.fillStyle = node.main ? "#fbbf24" : "#f43f5e";
+                ctx.shadowBlur = node.main ? 12 : 6;
+                ctx.shadowColor = node.main ? "#fbbf24" : "#f43f5e";
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
     }
-
-    // 5. 全球多节点动态地图 Canvas 脚本
-    const canvas = document.getElementById('globalMapCanvas');
-    const ctx = canvas.getContext('2d');
-
-    function resizeCanvas() {
-        const parent = canvas.parentElement;
-        canvas.width = parent.clientWidth || 300;
-        canvas.height = parent.clientHeight || 180;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    const locations = [
-        { name: 'Jakarta', x: 0.78, y: 0.75, isMain: true },
-        { name: 'Inggris', x: 0.28, y: 0.32, isMain: false },
-        { name: 'Prancis', x: 0.36, y: 0.42, isMain: false },
-        { name: 'Jerman', x: 0.44, y: 0.38, isMain: false },
-        { name: 'Nordik', x: 0.46, y: 0.20, isMain: false },
-        { name: 'Balkan', x: 0.52, y: 0.48, isMain: false },
-        { name: 'Timur Tengah', x: 0.64, y: 0.58, isMain: false }
-    ];
-
-    let pulseRadius = 0;
-    let mainPulseRadius = 0;
-
-    function drawGlobalMap() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        const w = canvas.width;
-        const h = canvas.height;
-
-        const jakarta = locations[0];
-        const jx = jakarta.x * w;
-        const jy = jakarta.y * h;
-
-        locations.forEach((loc, index) => {
-            if (index === 0) return;
-            const lx = loc.x * w;
-            const ly = loc.y * h;
-
-            ctx.strokeStyle = 'rgba(244, 63, 94, 0.18)';
-            ctx.lineWidth = 1;
-            ctx.setLineDash([3, 3]);
-
-            ctx.beginPath();
-            ctx.moveTo(jx, jy);
-            ctx.lineTo(lx, ly);
-            ctx.stroke();
-            ctx.setLineDash([]);
-        });
-
-        pulseRadius = (pulseRadius + 0.35) % 20;
-        mainPulseRadius = (mainPulseRadius + 0.6) % 35;
-
-        locations.forEach((loc, index) => {
-            if (index === 0) return;
-            const cx = loc.x * w;
-            const cy = loc.y * h;
-
-            ctx.beginPath();
-            ctx.arc(cx, cy, pulseRadius, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(244, 63, 94, ${1 - pulseRadius / 20})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.arc(cx, cy, 3, 0, Math.PI * 2);
-            ctx.fillStyle = '#f43f5e';
-            ctx.fill();
-
-            ctx.fillStyle = '#9ca3af';
-            ctx.font = '9px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText(loc.name, cx, cy - 8);
-        });
-
-        ctx.beginPath();
-        ctx.arc(jx, jy, mainPulseRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(251, 191, 36, ${1 - mainPulseRadius / 35})`;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        let secondRadius = (mainPulseRadius + 15) % 35;
-        ctx.beginPath();
-        ctx.arc(jx, jy, secondRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(251, 191, 36, ${1 - secondRadius / 35})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(jx, jy, 6, 0, Math.PI * 2);
-        ctx.fillStyle = '#fbbf24';
-        ctx.shadowColor = '#fbbf24';
-        ctx.shadowBlur = 15;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-
-        ctx.fillStyle = '#fde68a';
-        ctx.font = 'bold 11px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('Jakarta (Pusat)', jx, jy - 14);
-
-        requestAnimationFrame(drawGlobalMap);
-    }
-
-    drawGlobalMap();
 </script>
 
 </body>
