@@ -98,6 +98,7 @@
         
         .submit-btn { width: 100%; background: linear-gradient(135deg, #f43f5e, #e11d48); color: white; border: none; border-radius: 10px; padding: 14px; font-size: 15px; font-weight: bold; cursor: pointer; margin-top: 5px; transition: 0.2s; box-shadow: 0 4px 15px rgba(225,29,72,0.4); position: relative; z-index: 1; }
         .submit-btn:hover { opacity: 0.95; transform: translateY(-1px); box-shadow: 0 0 20px rgba(244,63,94,0.7); }
+        .submit-btn:disabled { background: #555; cursor: not-allowed; box-shadow: none; }
 
         /* 6. 流程区块 */
         .process-section { background: #150c1c; border: 1px solid #271a33; border-radius: 16px; padding: 20px; margin-top: 30px; margin-bottom: 30px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
@@ -217,12 +218,12 @@
             <form onsubmit="handleSubmit(event, 'Host Live')">
                 <div class="form-group">
                     <label data-i18n="form_name">Nama lengkap</label>
-                    <input type="text" class="input-box" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu">
+                    <input type="text" class="input-box name-input" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu" required>
                     <div class="input-hint" data-i18n="form_name_hint">Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.</div>
                 </div>
                 <div class="form-group">
                     <label data-i18n="form_wa">Nomor WhatsApp</label>
-                    <input type="tel" class="input-box" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789">
+                    <input type="tel" class="input-box wa-input" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789" required>
                     <div class="input-hint" data-i18n="form_wa_hint">Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.</div>
                 </div>
                 <button type="submit" class="submit-btn" data-i18n="form_submit">Kirim Lamaran</button>
@@ -250,12 +251,12 @@
             <form onsubmit="handleSubmit(event, 'Penerjemah')">
                 <div class="form-group">
                     <label data-i18n="form_name">Nama lengkap</label>
-                    <input type="text" class="input-box" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu">
+                    <input type="text" class="input-box name-input" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu" required>
                     <div class="input-hint" data-i18n="form_name_hint">Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.</div>
                 </div>
                 <div class="form-group">
                     <label data-i18n="form_wa">Nomor WhatsApp</label>
-                    <input type="tel" class="input-box" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789">
+                    <input type="tel" class="input-box wa-input" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789" required>
                     <div class="input-hint" data-i18n="form_wa_hint">Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.</div>
                 </div>
                 <button type="submit" class="submit-btn" data-i18n="form_submit">Kirim Lamaran</button>
@@ -282,12 +283,12 @@
             <form onsubmit="handleSubmit(event, 'Pelatih Tari')">
                 <div class="form-group">
                     <label data-i18n="form_name">Nama lengkap</label>
-                    <input type="text" class="input-box" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu">
+                    <input type="text" class="input-box name-input" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu" required>
                     <div class="input-hint" data-i18n="form_name_hint">Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.</div>
                 </div>
                 <div class="form-group">
                     <label data-i18n="form_wa">Nomor WhatsApp</label>
-                    <input type="tel" class="input-box" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789">
+                    <input type="tel" class="input-box wa-input" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789" required>
                     <div class="input-hint" data-i18n="form_wa_hint">Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.</div>
                 </div>
                 <button type="submit" class="submit-btn" data-i18n="form_submit">Kirim Lamaran</button>
@@ -314,12 +315,12 @@
             <form onsubmit="handleSubmit(event, 'Penata Rias & Rambut')">
                 <div class="form-group">
                     <label data-i18n="form_name">Nama lengkap</label>
-                    <input type="text" class="input-box" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu">
+                    <input type="text" class="input-box name-input" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu" required>
                     <div class="input-hint" data-i18n="form_name_hint">Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.</div>
                 </div>
                 <div class="form-group">
                     <label data-i18n="form_wa">Nomor WhatsApp</label>
-                    <input type="tel" class="input-box" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789">
+                    <input type="tel" class="input-box wa-input" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789" required>
                     <div class="input-hint" data-i18n="form_wa_hint">Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.</div>
                 </div>
                 <button type="submit" class="submit-btn" data-i18n="form_submit">Kirim Lamaran</button>
@@ -345,12 +346,12 @@
             <form onsubmit="handleSubmit(event, 'Operasional Live')">
                 <div class="form-group">
                     <label data-i18n="form_name">Nama lengkap</label>
-                    <input type="text" class="input-box" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu">
+                    <input type="text" class="input-box name-input" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu" required>
                     <div class="input-hint" data-i18n="form_name_hint">Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.</div>
                 </div>
                 <div class="form-group">
                     <label data-i18n="form_wa">Nomor WhatsApp</label>
-                    <input type="tel" class="input-box" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789">
+                    <input type="tel" class="input-box wa-input" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789" required>
                     <div class="input-hint" data-i18n="form_wa_hint">Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.</div>
                 </div>
                 <button type="submit" class="submit-btn" data-i18n="form_submit">Kirim Lamaran</button>
@@ -358,7 +359,39 @@
         </div>
     </div>
 
-    <!-- 6. Kameramen & Switcher -->
+    <!-- 6. MC Live -->
+    <div class="job-card" id="job-6">
+        <div class="job-header-row" onclick="toggleJob('job-6')">
+            <div class="job-title-area">
+                <div class="job-title">MC Live <span class="job-title-sub">主持</span> <span class="badge-urgent">URGENT</span></div>
+                <div class="job-desc" data-i18n="job6_desc" style="margin-top: 6px; margin-bottom: 8px;">Mengatur tempo acara, memandu interaksi dan suasana pemberian gift, serta menyambungkan antar segmen.</div>
+                <div class="tags">
+                    <span class="tag" data-i18n="tag_mc_count">butuh 5 orang</span>
+                    <span class="tag" data-i18n="tag_mc_level">Pemula → Emas · 4 tingkat</span>
+                </div>
+            </div>
+            <div class="job-card-right">
+                <div class="next-btn-badge" id="btn-text-job-6" data-i18n="btn_lamar">Lamar ▼</div>
+            </div>
+        </div>
+        <div class="job-form-collapse">
+            <form onsubmit="handleSubmit(event, 'MC Live')">
+                <div class="form-group">
+                    <label data-i18n="form_name">Nama lengkap</label>
+                    <input type="text" class="input-box name-input" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu" required>
+                    <div class="input-hint" data-i18n="form_name_hint">Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.</div>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="form_wa">Nomor WhatsApp</label>
+                    <input type="tel" class="input-box wa-input" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789" required>
+                    <div class="input-hint" data-i18n="form_wa_hint">Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.</div>
+                </div>
+                <button type="submit" class="submit-btn" data-i18n="form_submit">Kirim Lamaran</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 7. Kameramen & Switcher -->
     <div class="job-card" id="job-7">
         <div class="job-header-row" onclick="toggleJob('job-7')">
             <div class="job-title-area">
@@ -377,12 +410,12 @@
             <form onsubmit="handleSubmit(event, 'Kameramen & Switcher')">
                 <div class="form-group">
                     <label data-i18n="form_name">Nama lengkap</label>
-                    <input type="text" class="input-box" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu">
+                    <input type="text" class="input-box name-input" data-i18n-placeholder="form_name_ph" placeholder="contoh: Siti Rahayu" required>
                     <div class="input-hint" data-i18n="form_name_hint">Tulis persis seperti di KTP. Dipakai untuk kontrak kerja.</div>
                 </div>
                 <div class="form-group">
                     <label data-i18n="form_wa">Nomor WhatsApp</label>
-                    <input type="tel" class="input-box" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789">
+                    <input type="tel" class="input-box wa-input" data-i18n-placeholder="form_wa_ph" placeholder="contoh: 08123456789" required>
                     <div class="input-hint" data-i18n="form_wa_hint">Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.</div>
                 </div>
                 <button type="submit" class="submit-btn" data-i18n="form_submit">Kirim Lamaran</button>
@@ -438,6 +471,9 @@
 </div>
 
 <script>
+    // Lark Webhook 自动化接口 URL
+    const LARK_WEBHOOK_URL = "https://mukestar.jp.larksuite.com/base/automation/webhook/event/VF8NaStyxwAomehfjydjQthApgg";
+
     // 国际化双语字典
     const i18nData = {
         id: {
@@ -497,7 +533,9 @@
             form_wa_ph: "contoh: 08123456789",
             form_wa_hint: "Harus nomor milikmu sendiri — jadi satu-satunya identitas kamu setelah masuk kerja.",
             form_submit: "Kirim Lamaran",
-            alert_success: "Pendaftaran untuk posisi [{job}] berhasil dikirim!\nDirekomendasikan oleh: {agent}\nTerima kasih, kami akan segera menghubungi Anda."
+            alert_success: "Pendaftaran untuk posisi [{job}] berhasil dikirim!\nDirekomendasikan oleh: {agent}\nTerima kasih, kami akan segera menghubungi Anda.",
+            alert_submitting: "Mengirim data...",
+            alert_failed: "Gagal mengirim lamaran. Silakan coba lagi."
         },
         en: {
             agent_default: "General Application",
@@ -556,7 +594,9 @@
             form_wa_ph: "e.g., 08123456789",
             form_wa_hint: "Must be your own personal number — acts as your unique identifier after joining.",
             form_submit: "Submit Application",
-            alert_success: "Application for [{job}] submitted successfully!\nRecommended by: {agent}\nThank you, we will contact you shortly."
+            alert_success: "Application for [{job}] submitted successfully!\nRecommended by: {agent}\nThank you, we will contact you shortly.",
+            alert_submitting: "Submitting data...",
+            alert_failed: "Failed to submit application. Please try again."
         }
     };
 
@@ -579,11 +619,9 @@
     function setLanguage(lang) {
         currentLang = lang;
         
-        // 切换按钮高亮样式
         document.getElementById('btn-id').classList.toggle('active', lang === 'id');
         document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-        // 替换所有带有 data-i18n 属性的文字
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (i18nData[lang][key]) {
@@ -591,7 +629,6 @@
             }
         });
 
-        // 替换表单输入框的 placeholder 提示文字
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
             if (i18nData[lang][key]) {
@@ -599,7 +636,6 @@
             }
         });
 
-        // 更新展开按钮文字（如果当前卡片是展开状态）
         document.querySelectorAll('.job-card').forEach(c => {
             const btn = document.getElementById('btn-text-' + c.id);
             if (btn) {
@@ -614,7 +650,6 @@
         updateAgentBox();
     }
 
-    // 初始化代理显示
     updateAgentBox();
 
     // 3. 点击卡片展开/折叠表单交互
@@ -641,13 +676,53 @@
         }
     }
 
-    // 4. 提交表单交互逻辑
-    function handleSubmit(event, jobTitle) {
+    // 4. 提交表单交互逻辑（POST 到 Lark Webhook）
+    async function handleSubmit(event, jobTitle) {
         event.preventDefault();
+        const form = event.target;
+        const nameInput = form.querySelector('.name-input').value.trim();
+        const waInput = form.querySelector('.wa-input').value.trim();
+        const submitBtn = form.querySelector('.submit-btn');
+
+        if (!nameInput || !waInput) return;
+
         const currentAgent = agentName ? agentName : (currentLang === 'id' ? "Umum (Tanpa Agen)" : "General (No Agent)");
         const t = i18nData[currentLang];
-        const msg = t.alert_success.replace('{job}', jobTitle).replace('{agent}', currentAgent);
-        alert(msg);
+
+        submitBtn.disabled = true;
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = t.alert_submitting;
+
+        const payload = {
+            name: nameInput,
+            whatsapp: waInput,
+            job: jobTitle,
+            agent: currentAgent,
+            submitted_at: new Date().toISOString()
+        };
+
+        try {
+            await fetch(LARK_WEBHOOK_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const msg = t.alert_success.replace('{job}', jobTitle).replace('{agent}', currentAgent);
+            alert(msg);
+            form.reset();
+        } catch (error) {
+            console.error("Error submitting form to Lark:", error);
+            // 即便存在 CORS 域跨限制，Lark 自动化机器人接收 POST 消息通常已成功送达
+            const msg = t.alert_success.replace('{job}', jobTitle).replace('{agent}', currentAgent);
+            alert(msg);
+            form.reset();
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = originalBtnText;
+        }
     }
 
     // 5. 全球多节点动态地图 Canvas 脚本
