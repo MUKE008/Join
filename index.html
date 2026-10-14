@@ -702,13 +702,15 @@
         };
 
         try {
-            await fetch(LARK_WEBHOOK_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            });
+            atry {
+      await fetch(LARK_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",           // 👈 新增这一行
+        headers: {
+          "Content-Type": "text/plain" // 👈 把 application/json 改为 text/plain
+        },
+        body: JSON.stringify(payload)
+      });
 
             const msg = t.alert_success.replace('{job}', jobTitle).replace('{agent}', currentAgent);
             alert(msg);
